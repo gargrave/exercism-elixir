@@ -33,14 +33,11 @@ defmodule RotationalCipher do
     unless String.match?(char, ~r{[A-z]}) do
       char
     else
-      # find index of original char,
-      # replace it with same index from 'alpha_encoded'
       new_char = Enum.at(
         alpha_encoded, 
         Enum.find_index(alpha_clean, &(&1 == String.downcase(char)))
       )
 
-      # convert back to upcase if original was upcase
       case String.match?(char, ~r{[A-Z]}) do
         true -> String.upcase(new_char)
         false -> new_char
