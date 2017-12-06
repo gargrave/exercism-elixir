@@ -1,4 +1,6 @@
 defmodule SecretHandshake do
+  use Bitwise
+
   @all_commands [
     "wink",
     "double blink",
@@ -7,7 +9,6 @@ defmodule SecretHandshake do
   ]
   @reverse_bit 16
 
-  use Bitwise
   @doc """
   Determine the actions of a secret handshake based on the binary
   representation of the given `code`.
